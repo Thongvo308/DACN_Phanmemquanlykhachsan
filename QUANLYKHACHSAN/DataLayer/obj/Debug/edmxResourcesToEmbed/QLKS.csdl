@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlykhachsanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_CT_DP">
+    <Key>
+      <PropertyRef Name="MaCT_DP" />
+    </Key>
+    <Property Name="MaCT_DP" Type="Int32" Nullable="false" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="SoNgayO" Type="Int32" />
+    <Property Name="ThanhTien" Type="Double" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="MaDat" Type="Int32" />
+    <NavigationProperty Name="tb_datphong" Relationship="Self.fk_CT_DP_datphong" FromRole="tb_CT_DP" ToRole="tb_datphong" />
+    <NavigationProperty Name="tb_phong" Relationship="Self.fk_CT_DP_phong" FromRole="tb_CT_DP" ToRole="tb_phong" />
+    <NavigationProperty Name="tb_DP_HH_DV" Relationship="Self.fk_DPHHDV_CT_DP" FromRole="tb_CT_DP" ToRole="tb_DP_HH_DV" />
+  </EntityType>
+  <EntityType Name="tb_datphong">
+    <Key>
+      <PropertyRef Name="MaDat" />
+    </Key>
+    <Property Name="MaDat" Type="Int32" Nullable="false" />
+    <Property Name="NgayDat" Type="DateTime" Precision="3" />
+    <Property Name="NgayTra" Type="DateTime" Precision="3" />
+    <Property Name="SoNguoiO" Type="Int32" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="SoTien" Type="Double" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_BY" Type="Int32" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="MaKH" Type="Int32" />
+    <Property Name="MaNV" Type="Int32" />
+    <NavigationProperty Name="tb_CT_DP" Relationship="Self.fk_CT_DP_datphong" FromRole="tb_datphong" ToRole="tb_CT_DP" />
+    <NavigationProperty Name="tb_khachhang" Relationship="Self.fk_datphong_khachhang" FromRole="tb_datphong" ToRole="tb_khachhang" />
+    <NavigationProperty Name="tb_nhanvien" Relationship="Self.fk_datphong_nhanvien" FromRole="tb_datphong" ToRole="tb_nhanvien" />
+    <NavigationProperty Name="tb_phong" Relationship="Self.fk_datphong_phong" FromRole="tb_datphong" ToRole="tb_phong" />
+  </EntityType>
+  <EntityType Name="tb_DP_HH_DV">
+    <Key>
+      <PropertyRef Name="MaDP_HH_DV" />
+    </Key>
+    <Property Name="MaDP_HH_DV" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="ThanhTien" Type="Double" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="MaDat" Type="Int32" />
+    <Property Name="MaCT_DP" Type="Int32" />
+    <Property Name="MaHH_DV" Type="Int32" />
+    <NavigationProperty Name="tb_CT_DP" Relationship="Self.fk_DPHHDV_CT_DP" FromRole="tb_DP_HH_DV" ToRole="tb_CT_DP" />
+    <NavigationProperty Name="tb_hanghoa_dichvu" Relationship="Self.fk_DPHHDV_HH_DV" FromRole="tb_DP_HH_DV" ToRole="tb_hanghoa_dichvu" />
+  </EntityType>
+  <EntityType Name="tb_func">
+    <Key>
+      <PropertyRef Name="Func_Code" />
+      <PropertyRef Name="Sort" />
+    </Key>
+    <Property Name="Func_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Isgroup" Type="Boolean" />
+    <Property Name="Parent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Menu" Type="Boolean" />
+    <Property Name="Tips" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_hanghoa_dichvu">
+    <Key>
+      <PropertyRef Name="MaHH_DV" />
+    </Key>
+    <Property Name="MaHH_DV" Type="Int32" Nullable="false" />
+    <Property Name="TenHH_DV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="MaNCC" Type="Int32" />
+    <NavigationProperty Name="tb_DP_HH_DV" Relationship="Self.fk_DPHHDV_HH_DV" FromRole="tb_hanghoa_dichvu" ToRole="tb_DP_HH_DV" />
+    <NavigationProperty Name="tb_nhacungcap" Relationship="Self.fk_hhdv_nhacungcap" FromRole="tb_hanghoa_dichvu" ToRole="tb_nhacungcap" />
+  </EntityType>
+  <EntityType Name="tb_khachhang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CCCD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tb_datphong" Relationship="Self.fk_datphong_khachhang" FromRole="tb_khachhang" ToRole="tb_datphong" />
+  </EntityType>
+  <EntityType Name="tb_loaiphong">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="Int32" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="SoGiuong" Type="Int32" />
+    <Property Name="SoNguoi" Type="Int32" />
+    <NavigationProperty Name="tb_phong" Relationship="Self.fk_phong_loaiphong" FromRole="tb_loaiphong" ToRole="tb_phong" />
+  </EntityType>
+  <EntityType Name="tb_nhacungcap">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="Int32" Nullable="false" />
+    <Property Name="TenNCC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_hanghoa_dichvu" Relationship="Self.fk_hhdv_nhacungcap" FromRole="tb_nhacungcap" ToRole="tb_hanghoa_dichvu" />
+  </EntityType>
+  <EntityType Name="tb_nhanvien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_datphong" Relationship="Self.fk_datphong_nhanvien" FromRole="tb_nhanvien" ToRole="tb_datphong" />
+  </EntityType>
+  <EntityType Name="tb_phong">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="TenPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="MaLoai" Type="Int32" />
+    <Property Name="MaTB" Type="Int32" />
+    <Property Name="SoTang" Type="Int32" />
+    <NavigationProperty Name="tb_CT_DP" Relationship="Self.fk_CT_DP_phong" FromRole="tb_phong" ToRole="tb_CT_DP" />
+    <NavigationProperty Name="tb_datphong" Relationship="Self.fk_datphong_phong" FromRole="tb_phong" ToRole="tb_datphong" />
+    <NavigationProperty Name="tb_loaiphong" Relationship="Self.fk_phong_loaiphong" FromRole="tb_phong" ToRole="tb_loaiphong" />
+    <NavigationProperty Name="tb_tang" Relationship="Self.fk_phong_tang" FromRole="tb_phong" ToRole="tb_tang" />
+    <NavigationProperty Name="tb_thietbi" Relationship="Self.fk_phong_thietbi" FromRole="tb_phong" ToRole="tb_thietbi" />
+  </EntityType>
+  <EntityType Name="tb_tang">
+    <Key>
+      <PropertyRef Name="SoTang" />
+    </Key>
+    <Property Name="SoTang" Type="Int32" Nullable="false" />
+    <Property Name="TenTang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_phong" Relationship="Self.fk_phong_tang" FromRole="tb_tang" ToRole="tb_phong" />
+  </EntityType>
+  <EntityType Name="tb_thietbi">
+    <Key>
+      <PropertyRef Name="MaTB" />
+    </Key>
+    <Property Name="MaTB" Type="Int32" Nullable="false" />
+    <Property Name="TenTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_phong" Relationship="Self.fk_phong_thietbi" FromRole="tb_thietbi" ToRole="tb_phong" />
+  </EntityType>
+  <Association Name="fk_CT_DP_datphong">
+    <End Role="tb_datphong" Type="Self.tb_datphong" Multiplicity="0..1" />
+    <End Role="tb_CT_DP" Type="Self.tb_CT_DP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_datphong">
+        <PropertyRef Name="MaDat" />
+      </Principal>
+      <Dependent Role="tb_CT_DP">
+        <PropertyRef Name="MaDat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CT_DP_phong">
+    <End Role="tb_phong" Type="Self.tb_phong" Multiplicity="0..1" />
+    <End Role="tb_CT_DP" Type="Self.tb_CT_DP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_phong">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="tb_CT_DP">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DPHHDV_CT_DP">
+    <End Role="tb_CT_DP" Type="Self.tb_CT_DP" Multiplicity="0..1" />
+    <End Role="tb_DP_HH_DV" Type="Self.tb_DP_HH_DV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_CT_DP">
+        <PropertyRef Name="MaCT_DP" />
+      </Principal>
+      <Dependent Role="tb_DP_HH_DV">
+        <PropertyRef Name="MaCT_DP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_datphong_khachhang">
+    <End Role="tb_khachhang" Type="Self.tb_khachhang" Multiplicity="0..1" />
+    <End Role="tb_datphong" Type="Self.tb_datphong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_khachhang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="tb_datphong">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_datphong_nhanvien">
+    <End Role="tb_nhanvien" Type="Self.tb_nhanvien" Multiplicity="0..1" />
+    <End Role="tb_datphong" Type="Self.tb_datphong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_nhanvien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="tb_datphong">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_datphong_phong">
+    <End Role="tb_phong" Type="Self.tb_phong" Multiplicity="0..1" />
+    <End Role="tb_datphong" Type="Self.tb_datphong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_phong">
+        <PropertyRef Name="MaPhong" />
+      </Principal>
+      <Dependent Role="tb_datphong">
+        <PropertyRef Name="MaPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DPHHDV_HH_DV">
+    <End Role="tb_hanghoa_dichvu" Type="Self.tb_hanghoa_dichvu" Multiplicity="0..1" />
+    <End Role="tb_DP_HH_DV" Type="Self.tb_DP_HH_DV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_hanghoa_dichvu">
+        <PropertyRef Name="MaHH_DV" />
+      </Principal>
+      <Dependent Role="tb_DP_HH_DV">
+        <PropertyRef Name="MaHH_DV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_hhdv_nhacungcap">
+    <End Role="tb_nhacungcap" Type="Self.tb_nhacungcap" Multiplicity="0..1" />
+    <End Role="tb_hanghoa_dichvu" Type="Self.tb_hanghoa_dichvu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_nhacungcap">
+        <PropertyRef Name="MaNCC" />
+      </Principal>
+      <Dependent Role="tb_hanghoa_dichvu">
+        <PropertyRef Name="MaNCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_phong_loaiphong">
+    <End Role="tb_loaiphong" Type="Self.tb_loaiphong" Multiplicity="0..1" />
+    <End Role="tb_phong" Type="Self.tb_phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_loaiphong">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="tb_phong">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_phong_tang">
+    <End Role="tb_tang" Type="Self.tb_tang" Multiplicity="0..1" />
+    <End Role="tb_phong" Type="Self.tb_phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tang">
+        <PropertyRef Name="SoTang" />
+      </Principal>
+      <Dependent Role="tb_phong">
+        <PropertyRef Name="SoTang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_phong_thietbi">
+    <End Role="tb_thietbi" Type="Self.tb_thietbi" Multiplicity="0..1" />
+    <End Role="tb_phong" Type="Self.tb_phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_thietbi">
+        <PropertyRef Name="MaTB" />
+      </Principal>
+      <Dependent Role="tb_phong">
+        <PropertyRef Name="MaTB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quanlykhachsanEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_CT_DP" EntityType="Self.tb_CT_DP" />
+    <EntitySet Name="tb_datphong" EntityType="Self.tb_datphong" />
+    <EntitySet Name="tb_DP_HH_DV" EntityType="Self.tb_DP_HH_DV" />
+    <EntitySet Name="tb_func" EntityType="Self.tb_func" />
+    <EntitySet Name="tb_hanghoa_dichvu" EntityType="Self.tb_hanghoa_dichvu" />
+    <EntitySet Name="tb_khachhang" EntityType="Self.tb_khachhang" />
+    <EntitySet Name="tb_loaiphong" EntityType="Self.tb_loaiphong" />
+    <EntitySet Name="tb_nhacungcap" EntityType="Self.tb_nhacungcap" />
+    <EntitySet Name="tb_nhanvien" EntityType="Self.tb_nhanvien" />
+    <EntitySet Name="tb_phong" EntityType="Self.tb_phong" />
+    <EntitySet Name="tb_tang" EntityType="Self.tb_tang" />
+    <EntitySet Name="tb_thietbi" EntityType="Self.tb_thietbi" />
+    <AssociationSet Name="fk_CT_DP_datphong" Association="Self.fk_CT_DP_datphong">
+      <End Role="tb_datphong" EntitySet="tb_datphong" />
+      <End Role="tb_CT_DP" EntitySet="tb_CT_DP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CT_DP_phong" Association="Self.fk_CT_DP_phong">
+      <End Role="tb_phong" EntitySet="tb_phong" />
+      <End Role="tb_CT_DP" EntitySet="tb_CT_DP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DPHHDV_CT_DP" Association="Self.fk_DPHHDV_CT_DP">
+      <End Role="tb_CT_DP" EntitySet="tb_CT_DP" />
+      <End Role="tb_DP_HH_DV" EntitySet="tb_DP_HH_DV" />
+    </AssociationSet>
+    <AssociationSet Name="fk_datphong_khachhang" Association="Self.fk_datphong_khachhang">
+      <End Role="tb_khachhang" EntitySet="tb_khachhang" />
+      <End Role="tb_datphong" EntitySet="tb_datphong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_datphong_nhanvien" Association="Self.fk_datphong_nhanvien">
+      <End Role="tb_nhanvien" EntitySet="tb_nhanvien" />
+      <End Role="tb_datphong" EntitySet="tb_datphong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_datphong_phong" Association="Self.fk_datphong_phong">
+      <End Role="tb_phong" EntitySet="tb_phong" />
+      <End Role="tb_datphong" EntitySet="tb_datphong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DPHHDV_HH_DV" Association="Self.fk_DPHHDV_HH_DV">
+      <End Role="tb_hanghoa_dichvu" EntitySet="tb_hanghoa_dichvu" />
+      <End Role="tb_DP_HH_DV" EntitySet="tb_DP_HH_DV" />
+    </AssociationSet>
+    <AssociationSet Name="fk_hhdv_nhacungcap" Association="Self.fk_hhdv_nhacungcap">
+      <End Role="tb_nhacungcap" EntitySet="tb_nhacungcap" />
+      <End Role="tb_hanghoa_dichvu" EntitySet="tb_hanghoa_dichvu" />
+    </AssociationSet>
+    <AssociationSet Name="fk_phong_loaiphong" Association="Self.fk_phong_loaiphong">
+      <End Role="tb_loaiphong" EntitySet="tb_loaiphong" />
+      <End Role="tb_phong" EntitySet="tb_phong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_phong_tang" Association="Self.fk_phong_tang">
+      <End Role="tb_tang" EntitySet="tb_tang" />
+      <End Role="tb_phong" EntitySet="tb_phong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_phong_thietbi" Association="Self.fk_phong_thietbi">
+      <End Role="tb_thietbi" EntitySet="tb_thietbi" />
+      <End Role="tb_phong" EntitySet="tb_phong" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

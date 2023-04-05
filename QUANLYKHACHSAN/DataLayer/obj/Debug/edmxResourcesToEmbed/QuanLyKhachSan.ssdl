@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlykhachsanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_CT_DP">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+      <PropertyRef Name="MaDat" />
+      <PropertyRef Name="MaCT_DP" />
+    </Key>
+    <Property Name="DonGia" Type="float" />
+    <Property Name="SoNgayO" Type="int" />
+    <Property Name="ThanhTien" Type="float" />
+    <Property Name="MaPhong" Type="int" Nullable="false" />
+    <Property Name="MaDat" Type="int" Nullable="false" />
+    <Property Name="MaCT_DP" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_datphong">
+    <Key>
+      <PropertyRef Name="MaDat" />
+    </Key>
+    <Property Name="MaDat" Type="int" Nullable="false" />
+    <Property Name="NgayDat" Type="datetime" />
+    <Property Name="NgayTra" Type="datetime" />
+    <Property Name="SoNguoiO" Type="int" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="SoTien" Type="float" />
+    <Property Name="CREATED_DATE" Type="datetime" />
+    <Property Name="UPDATE_BY" Type="int" />
+    <Property Name="UPDATE_DATE" Type="datetime" />
+    <Property Name="MaPhong" Type="int" />
+    <Property Name="MaKH" Type="int" />
+    <Property Name="MaNV" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_DP_HH_DV">
+    <Key>
+      <PropertyRef Name="MaHH_DV" />
+      <PropertyRef Name="MaDP_HH_DV" />
+      <PropertyRef Name="MaDat" />
+    </Key>
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="float" />
+    <Property Name="ThanhTien" Type="float" />
+    <Property Name="MaPhong" Type="int" />
+    <Property Name="MaCT_DP" Type="int" Nullable="false" />
+    <Property Name="MaHH_DV" Type="int" Nullable="false" />
+    <Property Name="MaDP_HH_DV" Type="int" Nullable="false" />
+    <Property Name="MaDat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_func">
+    <Key>
+      <PropertyRef Name="Func_Code" />
+      <PropertyRef Name="Sort" />
+    </Key>
+    <Property Name="Func_Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Isgroup" Type="bit" />
+    <Property Name="Parent" Type="nvarchar" MaxLength="50" />
+    <Property Name="Menu" Type="bit" />
+    <Property Name="Tips" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tb_hanghoa_dichvu">
+    <Key>
+      <PropertyRef Name="MaHH_DV" />
+    </Key>
+    <Property Name="MaHH_DV" Type="int" Nullable="false" />
+    <Property Name="TenHH_DV" Type="nvarchar" MaxLength="50" />
+    <Property Name="DonGia" Type="float" />
+    <Property Name="MaNCC" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_khachhang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" Nullable="false" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="CCCD" Type="nvarchar" MaxLength="15" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="CREATED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tb_loaiphong">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="int" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="DonGia" Type="float" />
+    <Property Name="SoGiuong" Type="int" />
+    <Property Name="SoNguoi" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_nhacungcap">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="int" Nullable="false" />
+    <Property Name="TenNCC" Type="nvarchar" MaxLength="500" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tb_nhanvien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" Nullable="false" />
+    <Property Name="TenNV" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tb_phong">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="int" Nullable="false" />
+    <Property Name="TenPhong" Type="nvarchar" MaxLength="10" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="MaLoai" Type="int" />
+    <Property Name="MaTB" Type="int" />
+    <Property Name="SoTang" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'quanlykhachsan.dbo.tb_taikhoan' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tb_taikhoan">
+          <Property Name="TenDN" Type="nvarchar" MaxLength="40" />
+          <Property Name="TenNV" Type="nvarchar" MaxLength="40" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="40" />
+          <Property Name="Quyen" Type="nvarchar" MaxLength="40" />
+        </EntityType>-->
+  <EntityType Name="tb_tang">
+    <Key>
+      <PropertyRef Name="SoTang" />
+    </Key>
+    <Property Name="SoTang" Type="int" Nullable="false" />
+    <Property Name="TenTang" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tb_thietbi">
+    <Key>
+      <PropertyRef Name="MaTB" />
+    </Key>
+    <Property Name="MaTB" Type="int" Nullable="false" />
+    <Property Name="TenTB" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="quanlykhachsanModelStoreContainer">
+    <EntitySet Name="tb_CT_DP" EntityType="Self.tb_CT_DP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_datphong" EntityType="Self.tb_datphong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_DP_HH_DV" EntityType="Self.tb_DP_HH_DV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_func" EntityType="Self.tb_func" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_hanghoa_dichvu" EntityType="Self.tb_hanghoa_dichvu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_khachhang" EntityType="Self.tb_khachhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_loaiphong" EntityType="Self.tb_loaiphong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_nhacungcap" EntityType="Self.tb_nhacungcap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_nhanvien" EntityType="Self.tb_nhanvien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_phong" EntityType="Self.tb_phong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_tang" EntityType="Self.tb_tang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_thietbi" EntityType="Self.tb_thietbi" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

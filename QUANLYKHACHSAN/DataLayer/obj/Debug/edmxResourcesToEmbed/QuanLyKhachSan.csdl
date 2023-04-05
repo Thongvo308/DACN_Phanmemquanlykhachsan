@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlykhachsanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="quanlykhachsanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_CT_DP" EntityType="quanlykhachsanModel.tb_CT_DP" />
+    <EntitySet Name="tb_datphong" EntityType="quanlykhachsanModel.tb_datphong" />
+    <EntitySet Name="tb_DP_HH_DV" EntityType="quanlykhachsanModel.tb_DP_HH_DV" />
+    <EntitySet Name="tb_func" EntityType="quanlykhachsanModel.tb_func" />
+    <EntitySet Name="tb_hanghoa_dichvu" EntityType="quanlykhachsanModel.tb_hanghoa_dichvu" />
+    <EntitySet Name="tb_khachhang" EntityType="quanlykhachsanModel.tb_khachhang" />
+    <EntitySet Name="tb_loaiphong" EntityType="quanlykhachsanModel.tb_loaiphong" />
+    <EntitySet Name="tb_nhacungcap" EntityType="quanlykhachsanModel.tb_nhacungcap" />
+    <EntitySet Name="tb_nhanvien" EntityType="quanlykhachsanModel.tb_nhanvien" />
+    <EntitySet Name="tb_phong" EntityType="quanlykhachsanModel.tb_phong" />
+    <EntitySet Name="tb_tang" EntityType="quanlykhachsanModel.tb_tang" />
+    <EntitySet Name="tb_thietbi" EntityType="quanlykhachsanModel.tb_thietbi" />
+  </EntityContainer>
+  <EntityType Name="tb_CT_DP">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+      <PropertyRef Name="MaDat" />
+      <PropertyRef Name="MaCT_DP" />
+    </Key>
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="SoNgayO" Type="Int32" />
+    <Property Name="ThanhTien" Type="Double" />
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="MaDat" Type="Int32" Nullable="false" />
+    <Property Name="MaCT_DP" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_datphong">
+    <Key>
+      <PropertyRef Name="MaDat" />
+    </Key>
+    <Property Name="MaDat" Type="Int32" Nullable="false" />
+    <Property Name="NgayDat" Type="DateTime" Precision="3" />
+    <Property Name="NgayTra" Type="DateTime" Precision="3" />
+    <Property Name="SoNguoiO" Type="Int32" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="SoTien" Type="Double" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+    <Property Name="UPDATE_BY" Type="Int32" />
+    <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="MaKH" Type="Int32" />
+    <Property Name="MaNV" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_DP_HH_DV">
+    <Key>
+      <PropertyRef Name="MaHH_DV" />
+      <PropertyRef Name="MaDP_HH_DV" />
+      <PropertyRef Name="MaDat" />
+    </Key>
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="ThanhTien" Type="Double" />
+    <Property Name="MaPhong" Type="Int32" />
+    <Property Name="MaCT_DP" Type="Int32" Nullable="false" />
+    <Property Name="MaHH_DV" Type="Int32" Nullable="false" />
+    <Property Name="MaDP_HH_DV" Type="Int32" Nullable="false" />
+    <Property Name="MaDat" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_func">
+    <Key>
+      <PropertyRef Name="Func_Code" />
+      <PropertyRef Name="Sort" />
+    </Key>
+    <Property Name="Func_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Isgroup" Type="Boolean" />
+    <Property Name="Parent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Menu" Type="Boolean" />
+    <Property Name="Tips" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_hanghoa_dichvu">
+    <Key>
+      <PropertyRef Name="MaHH_DV" />
+    </Key>
+    <Property Name="MaHH_DV" Type="Int32" Nullable="false" />
+    <Property Name="TenHH_DV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="MaNCC" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_khachhang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CCCD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tb_loaiphong">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="Int32" Nullable="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="SoGiuong" Type="Int32" />
+    <Property Name="SoNguoi" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_nhacungcap">
+    <Key>
+      <PropertyRef Name="MaNCC" />
+    </Key>
+    <Property Name="MaNCC" Type="Int32" Nullable="false" />
+    <Property Name="TenNCC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_nhanvien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_phong">
+    <Key>
+      <PropertyRef Name="MaPhong" />
+    </Key>
+    <Property Name="MaPhong" Type="Int32" Nullable="false" />
+    <Property Name="TenPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="Boolean" />
+    <Property Name="MaLoai" Type="Int32" />
+    <Property Name="MaTB" Type="Int32" />
+    <Property Name="SoTang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_tang">
+    <Key>
+      <PropertyRef Name="SoTang" />
+    </Key>
+    <Property Name="SoTang" Type="Int32" Nullable="false" />
+    <Property Name="TenTang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_thietbi">
+    <Key>
+      <PropertyRef Name="MaTB" />
+    </Key>
+    <Property Name="MaTB" Type="Int32" Nullable="false" />
+    <Property Name="TenTB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

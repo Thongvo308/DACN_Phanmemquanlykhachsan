@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KhachSanModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tb_boithuong">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_boithuong">
+        <MappingFragment StoreEntitySet="tb_boithuong">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPhong" ColumnName="IDPhong" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="ThietHai" ColumnName="ThietHai" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_dathang">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_dathang">
+        <MappingFragment StoreEntitySet="tb_dathang">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="IDNCC" ColumnName="IDNCC" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_datphong">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_datphong">
+        <MappingFragment StoreEntitySet="tb_datphong">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="IDPhong" ColumnName="IDPhong" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="NgayTraDuKien" ColumnName="NgayTraDuKien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_dichvu">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_dichvu">
+        <MappingFragment StoreEntitySet="tb_dichvu">
+          <ScalarProperty Name="IDDV" ColumnName="IDDV" />
+          <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_hanghoa">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_hanghoa">
+        <MappingFragment StoreEntitySet="tb_hanghoa">
+          <ScalarProperty Name="IDTB" ColumnName="IDTB" />
+          <ScalarProperty Name="TenTB" ColumnName="TenTB" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_hoadon">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_hoadon">
+        <MappingFragment StoreEntitySet="tb_hoadon">
+          <ScalarProperty Name="IDHD" ColumnName="IDHD" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_khachhang">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_khachhang">
+        <MappingFragment StoreEntitySet="tb_khachhang">
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_khachhang_dichvu">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_khachhang_dichvu">
+        <MappingFragment StoreEntitySet="tb_khachhang_dichvu">
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="IDDV" ColumnName="IDDV" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="NgaySuDung" ColumnName="NgaySuDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_loaiphong">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_loaiphong">
+        <MappingFragment StoreEntitySet="tb_loaiphong">
+          <ScalarProperty Name="IDLoai" ColumnName="IDLoai" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_nhacungcap">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_nhacungcap">
+        <MappingFragment StoreEntitySet="tb_nhacungcap">
+          <ScalarProperty Name="IDNCC" ColumnName="IDNCC" />
+          <ScalarProperty Name="TenNCC" ColumnName="TenNCC" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_nhanvien">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_nhanvien">
+        <MappingFragment StoreEntitySet="tb_nhanvien">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_phong">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_phong">
+        <MappingFragment StoreEntitySet="tb_phong">
+          <ScalarProperty Name="IDPhong" ColumnName="IDPhong" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="IDLoai" ColumnName="IDLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_thietbi">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_thietbi">
+        <MappingFragment StoreEntitySet="tb_thietbi">
+          <ScalarProperty Name="IDTB" ColumnName="IDTB" />
+          <ScalarProperty Name="TenTB" ColumnName="TenTB" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_User">
+      <EntityTypeMapping TypeName="KhachSanModel.tb_User">
+        <MappingFragment StoreEntitySet="tb_User">
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
